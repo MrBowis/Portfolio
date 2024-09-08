@@ -10,8 +10,8 @@ const user = {
 
 const navigation = [
   { name: "Dashboard", href: "/Portfolio/", current: true },
-  { name: "Projects", href: "/Portfolio/projects", current: false },
-  { name: "Education", href: "/Portfolio/education", current: false },
+  { name: "Projects", href: "/Portfolio/#/projects", current: false },
+  { name: "Education", href: "/Portfolio/#/education", current: false },
 ];
 
 function classNames(...classes) {
