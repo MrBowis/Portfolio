@@ -1,24 +1,20 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
-import perfil from "/src/assets/perfil.jpg";
-
-const user = {
-  name: "Alejandro Andrade",
-  email: "02alejo20@gmail.com",
-  imageUrl: perfil,
-};
-
-const navigation = [
-  { name: "Dashboard", href: "/Portfolio/", current: true },
-  { name: "Projects", href: "/Portfolio/#/projects", current: false },
-  { name: "Education", href: "/Portfolio/#/education", current: false },
-];
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Nav() {
+
+  const [navigation, setNavigation] = useState([
+    { name: "Dashboard", href: "/", current: false },
+    { name: "Projects", href: "/projects", current: false },
+    { name: "Education", href: "/education", current: false },
+  ]);
+
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-800">
@@ -27,9 +23,9 @@ export default function Nav() {
             <div className="flex items-center">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
@@ -39,7 +35,7 @@ export default function Nav() {
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
