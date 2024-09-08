@@ -9,9 +9,9 @@ const user = {
 };
 
 const navigation = [
-  { name: "Dashboard", href: "/portfolio/", current: true },
-  { name: "Projects", href: "/portfolio/projects", current: false },
-  { name: "Education", href: "/portfolio/education", current: false },
+  { name: "Dashboard", href: "/Portfolio/", current: true },
+  { name: "Projects", href: "/Portfolio/projects", current: false },
+  { name: "Education", href: "/Portfolio/education", current: false },
 ];
 
 function classNames(...classes) {
