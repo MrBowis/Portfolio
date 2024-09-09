@@ -6,6 +6,7 @@ export default function Education() {
   return (
     <>
       <Nav></Nav>
+      <main></main>
       <Footer></Footer>
     </>
   );
