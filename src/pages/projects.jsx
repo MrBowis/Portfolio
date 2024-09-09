@@ -24,10 +24,10 @@ export default function Projects() {
   return (
     <>
       <Nav></Nav>
-      <main>
+      <main className="flex flex-grow justify-center items-center">
         {/* Presentar el nombre de los repositorios obtenidos */}
-        <div className="w-100 my-16 flex justify-center items-center overflow-y-auto h-96">
-          <div className="grid grid-cols-2 gap-2">
+        <div className="w-100 my-16 flex justify-center items-center h-96 overflow-auto">
+          <div className="grid grid-cols-2 gap-2 max-sm:grid-cols-1 max-sm:gap-1">
             {projects.map((project) => (
               <Card className="max-w-[400px] m-5">
                 <CardHeader className="flex gap-3">

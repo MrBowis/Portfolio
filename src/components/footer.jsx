@@ -4,25 +4,25 @@ import perfil from "../assets/perfil.jpg";
 
 export default function Footer() {
   return (
-    <>
-      <footer className="bg-gray-800 text-white text-center py-10 flex flex-row justify-evenly items-center">
+    <div className="mt-auto">
+      <footer className="w-full bg-gray-800 text-white text-center py-5 sm:flex flex-row justify-evenly items-center">
         <div>
-            <User
-              className="my-4"
-              name="Alejandro Andrade"
-              description="Software Engineering student"
-              avatarProps={{
-                src: perfil,
-              }}
-            />
+          <User
+            className="my-4"
+            name="Alejandro Andrade"
+            description="Software Engineering student"
+            avatarProps={{
+              src: perfil,
+            }}
+          />
           <p className="text-slate-400 my-4">
             &copy; 2024, All Rights Reserved
           </p>
         </div>
-        <hr className="py-16 outline outline-1" />
+        <hr className="sm:py-16 max-sm:w-2/3 max-sm:my-0 max-sm:mx-auto outline outline-1" />
         <div>
-          <p>Contact</p>
-          <div className="flex flex-row justify-evenly">
+          <p className="max-sm:pt-5">Contact</p>
+          <div className="flex flex-row justify-center">
             <a
               href="https://github.com/MrBowis"
               className="m-2"
@@ -58,6 +58,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
