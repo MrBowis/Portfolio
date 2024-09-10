@@ -19,17 +19,17 @@ export default function Projects() {
     axios.get("https://api.github.com/users/mrbowis/repos").then((response) => {
       setProjects(response.data);
     });
-  });
+  }, []);
 
   return (
     <>
       <Nav></Nav>
-      <main className="flex flex-grow justify-center items-center">
+      <main className="flex flex-grow justify-center items-center h-full">
         {/* Presentar el nombre de los repositorios obtenidos */}
-        <div className="w-100 my-16 flex justify-center items-center h-96 overflow-auto">
+        <div className="w-100 my-16 flex justify-center items-start overflow-y-auto h-96">
           <div className="grid grid-cols-2 gap-2 max-sm:grid-cols-1 max-sm:gap-1">
             {projects.map((project) => (
-              <Card className="max-w-[400px] m-5">
+              <Card key={project.id} className="max-w-[400px] m-5">
                 <CardHeader className="flex gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
