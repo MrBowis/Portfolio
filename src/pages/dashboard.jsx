@@ -26,19 +26,26 @@ export default function Dashboard() {
       </div>
       <p className="text-center text-2xl font-bold">Skills</p>
       <div className="flex max-sm:flex-col justify-evenly items-center w-full my-5">
-        <div className="flex flex-col">
-          <p className="text-center text-xl font-bold">Frontend</p>
-          <p className="text-center text-lg">HTML</p>
-          <p className="text-center text-lg">CSS</p>
-          <p className="text-center text-lg">JavaScript</p>
-          <p className="text-center text-lg">React</p>
+        <div className="flex flex-col max-sm:mx-5 sm:mx-2 max-w-xs">
+          <p className="text-center text-xl font-bold">Hard Skills</p>
+          <div className="flex flex-wrap items-center justify-center">
+            <p className="text-center text-lg m-2">HTML</p>
+            <p className="text-center text-lg m-2">CSS</p>
+            <p className="text-center text-lg m-2">JavaScript</p>
+            <p className="text-center text-lg m-2">Tailwind CSS</p>
+            <p className="text-center text-lg m-2">React</p>
+            <p className="text-center text-lg m-2">Next</p>
+            <p className="text-center text-lg m-2">Django</p>
+          </div>
         </div>
-        <hr className="sm:py-16 max-sm:w-2/3 max-sm:my-0 max-sm:mx-auto max-sm:border-y-1 sm:border-x-1 border-slate-950 m-" />
-        <div className="flex flex-col">
-          <p className="text-center text-xl font-bold">Backend</p>
-          <p className="text-center text-lg">Node.js</p>
-          <p className="text-center text-lg">Express</p>
-          <p className="text-center text-lg">MongoDB</p>
+        <hr className="sm:py-16 max-sm:w-2/3 max-sm:mx-auto max-sm:border-y-1 sm:border-x-1 border-slate-950 max-sm:my-3" />
+        <div className="flex flex-col max-sm:mx-5 sm:mx-2 max-w-xs">
+          <p className="text-center text-xl font-bold">Soft Skills</p>
+          <div className="flex flex-wrap items-center justify-center">
+            <p className="text-center text-lg m-2">Leadership</p>
+            <p className="text-center text-lg m-2">Problem solving</p>
+            <p className="text-center text-lg m-2">Teamwork</p>
+          </div>
         </div>
       </div>
       <Footer />
