@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="mt-auto">
       <footer className="w-full bg-gray-800 text-white text-center py-5 sm:flex flex-row justify-evenly items-center">
-        <div>
+        <div className="sm:flex-1">
           <User
             className="my-4"
             name="Alejandro Andrade"
@@ -19,8 +19,8 @@ export default function Footer() {
             &copy; 2024, All Rights Reserved
           </p>
         </div>
-        <hr className="sm:py-16 max-sm:w-2/3 max-sm:my-0 max-sm:mx-auto outline outline-1" />
-        <div>
+        <hr className="sm:py-16 max-sm:w-2/3 max-sm:my-0 max-sm:mx-auto outline outline-1 sm:flex-none" />
+        <div className="sm:flex-1">
           <p className="max-sm:pt-5">Contact</p>
           <div className="flex flex-row justify-center">
             <a
