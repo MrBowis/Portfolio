@@ -3,8 +3,9 @@ import Footer from "../components/footer";
 import perfil from "/src/assets/perfil.jpg";
 import styles from "../styles/dashboard.module.css";
 import { Chip } from "@nextui-org/react";
+import { useState } from "react";
 
-const skills = [
+const AllSkills = [
   { name: "Leadership", color: "primary" },
   { name: "Problem solving", color: "secondary" },
   { name: "Teamwork", color: "success" },
@@ -16,6 +17,10 @@ const skills = [
 ];
 
 export default function Dashboard() {
+  const [skills, setSkills] = useState(AllSkills);
+
+  const [hoveredIndex, setHoveredIndex] = useState(null); // Estado para el índice del elemento en hover
+
   return (
     <>
       <Nav></Nav>
@@ -485,12 +490,16 @@ export default function Dashboard() {
         <div className="flex flex-col flex-1 max-sm:mx-5 sm:mx-2 max-w-xs lg:max-w-md">
           <p className="text-center text-xl font-bold">Soft Skills</p>
           <div className="flex flex-wrap items-center justify-center mt-4">
-            {skills.map((skill) => (
+            {skills.map((skill, index) => (
               <Chip
-                className="m-2"
+                key="soft-skill"
+                keyProp="soft-skill"
+                className="m-2 hover:scale-150 hover:z-20 ease-in-out duration-300"
                 size="lg"
                 color={skill.color}
-                variant="flat"
+                variant={hoveredIndex === index ? "shadow" : "flat"} // Cambia según el índice
+                onMouseEnter={() => setHoveredIndex(index)} // Establece el índice en hover
+                onMouseLeave={() => setHoveredIndex(null)} // Resetea el índice al salir
                 radius="md"
               >
                 {skill.name}
