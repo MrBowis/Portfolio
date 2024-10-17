@@ -42,6 +42,9 @@ Software Engineering student with aspirations of service and learning in areas r
 
  This project was made with Vite, use NextJS in some components and tailwildCSS for more details.
 
- Try clone if you want to custom...
+ Try clone if you want to custom.
  
-
+```bash
+git clone https://github.com/MrBowis/Portfolio
+cd Portfolio
+```
