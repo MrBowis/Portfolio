@@ -37,3 +37,11 @@ Software Engineering student with aspirations of service and learning in areas r
     <img src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/sqlite/sqlite-original.svg" alt="sqlite" width=40 height="40" />
     <img src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/fedora/fedora-original.svg" alt="fedora" width=40 height="40" />
 </p>
+
+ ---
+
+ This project was made with Vite, use NextJS in some components and tailwildCSS for more details.
+
+ Try clone if you want to custom...
+ 
+
