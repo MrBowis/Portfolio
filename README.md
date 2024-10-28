@@ -1,22 +1,22 @@
 # Alejandro Andrade
+
+<h4 align="center">
 Software Engineering student with aspirations of service and learning in areas related to Web Development and Cyber Security.
 </h4>
 
-<!-- <p align="left">
+<p align="left">
   <img src="https://komarev.com/ghpvc/?username=mrbowis&label=Profile%20views&color=0e75b6&style=flat" alt="mrbowis" />
-</p> -->
+</p>
 
 🇪🇨 **Student** at the [Universidad de la Fuerzas Armadas ESPE](https://www.espe.edu.ec/).
 
----
+<img alt="stats" style="width: 46%;" src="https://github-readme-stats.vercel.app/api?username=MrBowis&show_icons=true&theme=tokyonight"/>
+<img alt="top langs" style="width: 46%;" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MrBowis&layout=compact&theme=tokyonight"/>  
 
 ## 🌐 Connect with me
-
 <a href="https://www.linkedin.com/in/alejandro-andrade-encalada-731b45257/" target="blank">
   <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin" height="30" width="40" />
 </a>
-
----
 
 ## 🛠️ Languages and Tools
 
@@ -37,8 +37,6 @@ Software Engineering student with aspirations of service and learning in areas r
     <img src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/sqlite/sqlite-original.svg" alt="sqlite" width=40 height="40" />
     <img src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/fedora/fedora-original.svg" alt="fedora" width=40 height="40" />
 </p>
-
- ---
 
  This project was made with Vite, use NextJS in some components and tailwildCSS for more details.
 
