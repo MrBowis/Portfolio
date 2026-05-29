@@ -1,3 +1,205 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --neon-green: #00ff66;
+  --dark-green: #004411;
+  --matrix-bg: #050505;
+  --panel-bg: #0c0c0c;
+  --inactive-border: #1a1a1a;
+  
+  /* Font Stacks */
+  --font-8bit: 'Press Start 2P', cursive;
+  --font-pixel: 'VT323', monospace;
+  --font-terminal: 'Share Tech Mono', monospace;
+}
+
+/* Global Reset & Retro Theme */
+html, body {
+  background-color: var(--matrix-bg) !important;
+  color: var(--neon-green) !important;
+  font-family: var(--font-terminal);
+  image-rendering: pixelated;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+/* Custom Scrollbar - Retro Hacker Green */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020202;
+  border-left: 1px solid var(--dark-green);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dark-green);
+  border: 1px solid var(--neon-green);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-green);
+}
+
+/* Utility Font classes */
+.font-8bit {
+  font-family: var(--font-8bit), sans-serif;
+  letter-spacing: -1px;
+}
+.font-pixel {
+  font-family: var(--font-pixel), monospace;
+  font-size: 1.25rem;
+}
+.font-terminal {
+  font-family: var(--font-terminal), monospace;
+}
+
+/* CRT Screen Scanlines Overlay (Subtle, professional & retro) */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Flicker effect for terminal authenticity */
+@keyframes crt-flicker {
+  0% { opacity: 0.985; }
+  50% { opacity: 0.995; }
+  100% { opacity: 0.985; }
+}
+.crt-flicker {
+  animation: crt-flicker 0.15s infinite;
+}
+
+/* Dynamic Active Hyprland Tiling Border */
+.hypr-active-window {
+  position: relative;
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--panel-bg), var(--panel-bg)), 
+                    linear-gradient(var(--angle, 135deg), var(--neon-green), var(--dark-green), var(--neon-green));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.35);
+  animation: rotate-border-angle 4s linear infinite;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-border-angle {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+/* Inactive window border */
+.hypr-inactive-window {
+  border: 2px solid var(--inactive-border);
+  background-color: var(--panel-bg);
+  box-shadow: none;
+}
+
+/* Green Terminal Terminal Scan & Text Glow */
+.text-glow {
+  text-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
+}
+.text-glow-dim {
+  text-shadow: 0 0 3px rgba(0, 255, 102, 0.4);
+}
+
+/* Matrix Code Rain Canvas wrapper */
+.matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+/* Custom CLI input box */
+.terminal-input-prompt {
+  background: transparent;
+  color: var(--neon-green);
+  border: none;
+  outline: none;
+  font-family: var(--font-terminal);
+  width: 100%;
+}
+
+/* Tech Progress terminal bar */
+.terminal-progress-track {
+  height: 14px;
+  background: #020202;
+  border: 1px solid var(--dark-green);
+  position: relative;
+  overflow: hidden;
+}
+.terminal-progress-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--neon-green),
+    var(--neon-green) 4px,
+    var(--dark-green) 4px,
+    var(--dark-green) 8px
+  );
+  box-shadow: 0 0 5px var(--neon-green);
+}
+
+/* Pacman Package Tag */
+.pacman-tag {
+  background: #111;
+  border: 1px solid var(--dark-green);
+  color: #ffdd00;
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+.pacman-tag:hover {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 5px rgba(255, 221, 0, 0.4);
+}
+
+/* Responsive grid layouts matching desktop grid splits */
+.bowis-desktop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .bowis-desktop-grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+  }
+}

@@ -1,35 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
 import "./index.css";
 import Dashboard from "./pages/dashboard";
 import Projects from "./pages/projects";
-import Education from "./pages/education";
-import { createHashRouter, RouterProvider } from "react-router-dom";
 
+// Route configuration inside BowisWM workspace layouts
 const Router = createHashRouter([
-   {
-      path: "/",
-      element: <Dashboard />,
-   },
-   {
-      path: "/projects",
-      element: <Projects />,
-   },
-   {
-      path: "/education",
-      element: <Education />,
-   }
+  {
+    path: "/",
+    element: <Dashboard defaultWorkspace={1} />,
+  },
+  {
+    path: "/projects",
+    element: <Projects />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={Router} />
     <NextUIProvider>
-      <BrowserRouter>
-      </BrowserRouter>
+      <RouterProvider router={Router} />
     </NextUIProvider>
   </React.StrictMode>
 );
