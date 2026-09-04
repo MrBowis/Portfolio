@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function Waybar({ activeWorkspace, setActiveWorkspace, activeWindowTitle }) {
+export default function Waybar({ activeWorkspace, setActiveWorkspace, activeWindowTitle, onSwitchProfile }) {
   const [time, setTime] = useState("");
   const [cpu, setCpu] = useState(12);
   const [ram, setRam] = useState(4.3);
@@ -72,8 +72,8 @@ export default function Waybar({ activeWorkspace, setActiveWorkspace, activeWind
         {activeWindowTitle ? `:: ${activeWindowTitle} ::` : ":: BowisWM (Hyprland Simulation) ::"}
       </div>
 
-      {/* Right: Telemetry & Time */}
-      <div className="flex items-center gap-3">
+      {/* Right: Telemetry, Switcher & Time */}
+      <div className="flex items-center gap-2 sm:gap-3">
         {/* Dynamic System Stats */}
         <div className="flex items-center gap-2 max-lg:hidden">
           <span className="bg-[#0c0c0c] px-2 py-0.5 border border-[#002208] rounded text-xs">
@@ -87,8 +87,20 @@ export default function Waybar({ activeWorkspace, setActiveWorkspace, activeWind
           </span>
         </div>
 
+        {/* Profile Switcher Button */}
+        {onSwitchProfile && (
+          <button
+            onClick={onSwitchProfile}
+            className="bg-[#0c0c0c] hover:bg-[#002208] border border-[#00ff66] text-[#00ff66] px-2.5 py-0.5 rounded text-xs font-pixel font-bold transition-all flex items-center gap-1 shadow-[0_0_8px_rgba(0,255,102,0.2)] hover:shadow-[0_0_12px_rgba(0,255,102,0.4)]"
+            title="Cambiar al perfil ejecutivo no técnico"
+          >
+            <span>👔</span>
+            <span className="max-sm:hidden font-terminal">Perfil No Técnico</span>
+          </button>
+        )}
+
         {/* Date / Time clock */}
-        <div className="bg-[#0c0c0c] px-2.5 py-0.5 border border-[#004411] rounded text-xs font-bold text-[#fff]">
+        <div className="bg-[#0c0c0c] px-2.5 py-0.5 border border-[#004411] rounded text-xs font-bold text-[#fff] max-sm:hidden">
           📅 {time}
         </div>
       </div>

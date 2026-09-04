@@ -134,7 +134,7 @@ export default function TerminalPane() {
         setHistory([
           ...newHistory,
           { type: "output", text: "--- CONTACT CARD ---" },
-          { type: "output", text: "  Email:  aleandradeen@gmail.com" },
+          { type: "output", text: "  Email: 02alejo20@gmail.com" },
           { type: "output", text: "  Github: https://github.com/MrBowis" },
           { type: "output", text: "  LinkedIn: https://www.linkedin.com/in/alejandro-andrade-encalada-731b45257/" }
         ]);

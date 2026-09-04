@@ -7,8 +7,20 @@ import PitchPane from "../components/PitchPane";
 import TerminalPane from "../components/TerminalPane";
 import TechStackPane from "../components/TechStackPane";
 import ProjectCard from "../components/ProjectCard";
+import ProfileSelectorModal from "../components/ProfileSelectorModal";
+import NonTechPortfolio from "../components/NonTechPortfolio";
 
 export default function Dashboard({ defaultWorkspace = 1 }) {
+  // Navigation Profile State ('technical' | 'non-technical' | null)
+  const [profileMode, setProfileMode] = useState(() => {
+    return localStorage.getItem("portfolio_profile_mode") || null;
+  });
+
+  const handleSelectProfile = (mode) => {
+    setProfileMode(mode);
+    localStorage.setItem("portfolio_profile_mode", mode);
+  };
+
   // Desktop Telemetry States
   const [activeWorkspace, setActiveWorkspace] = useState(defaultWorkspace);
   const [activeWindowTitle, setActiveWindowTitle] = useState("bash - mrbowis@archlinux");
@@ -233,8 +245,23 @@ export default function Dashboard({ defaultWorkspace = 1 }) {
     );
   };
 
+  // If Non-Technical profile is chosen, render the modern executive portfolio view
+  if (profileMode === "non-technical") {
+    return (
+      <>
+        {profileMode === null && <ProfileSelectorModal onSelectProfile={handleSelectProfile} />}
+        <NonTechPortfolio onSwitchProfile={() => handleSelectProfile("technical")} />
+      </>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#050505] text-[#00ff66] relative font-terminal overflow-hidden select-none">
+      {/* Profile Selector Modal (Shown on initial visit if profileMode is null) */}
+      {profileMode === null && (
+        <ProfileSelectorModal onSelectProfile={handleSelectProfile} />
+      )}
+
       {/* Immersive CRT scanline overlays */}
       <div className="crt-overlay" />
 
@@ -257,11 +284,12 @@ export default function Dashboard({ defaultWorkspace = 1 }) {
         )}
       </AnimatePresence>
 
-      {/* Waybar status panel */}
+      {/* Waybar status panel with mode switcher */}
       <Waybar
         activeWorkspace={activeWorkspace}
         setActiveWorkspace={setActiveWorkspace}
         activeWindowTitle={activeWindowTitle}
+        onSwitchProfile={() => handleSelectProfile("non-technical")}
       />
 
       {/* Virtual Desktop Tiling Area */}
